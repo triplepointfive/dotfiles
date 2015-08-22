@@ -9,6 +9,7 @@
   Plugin 'gmarik/vundle'
   Plugin 'scrooloose/syntastic'
   Plugin 'neovimhaskell/haskell-vim'
+  Plugin 'lukerandall/haskellmode-vim'
   Plugin 'enomsg/vim-haskellConcealPlus'
   Plugin 'Twinside/vim-haskellFold'
   Plugin 'vim-scripts/wombat256.vim'
@@ -21,7 +22,7 @@
   Plugin 'xolox/vim-misc'
   Plugin 'szw/vim-tags'
   Plugin 'mileszs/ack.vim'
-  Plugin 'eagletmt/ghcmod-vim'
+  " Plugin 'eagletmt/ghcmod-vim'
   Plugin 'Shougo/neocomplcache.vim'
   Plugin 'eagletmt/neco-ghc'
   Plugin 'Twinside/vim-hoogle'
@@ -177,6 +178,9 @@ let g:NERTreeHighlightCursorLine=1
   autocmd FileType haskell vmap <C-c><C-l> :GhciRange<CR>
   autocmd FileType haskell nmap <C-c><C-f> :GhciFile<CR>
   autocmd FileType haskell nmap <C-c><C-r> :GhciReload<CR>
+
+  " haskellmode-vim
+  let g:haddock_browser="/usr/bin/firefox"
 " }}}
 
 " Syntastic {{{
