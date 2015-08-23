@@ -28,6 +28,9 @@
   " Comments
   Plugin 'tpope/vim-commentary'
 
+  " Color scheme
+  Plugin 'vim-scripts/wombat256.vim'
+
   " Base {{{
    " Used for lot of stuff
     let mapleader = ','
@@ -78,12 +81,18 @@ filetype plugin indent on    " required
   " Commentary {{{
   nmap <C-_> <Plug>CommentaryLine<CR>
   " }}}
-
 " }}}
 
 " General {{{
   filetype plugin indent on " Enables filetype plugin
   set number
+
+  " Colorscheme {{{
+  colorscheme wombat256mod
+
+  syntax enable
+  set t_Co=256
+  " }}}
 " }}}
 
 " Binding {{{
