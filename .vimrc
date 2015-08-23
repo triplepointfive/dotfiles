@@ -31,6 +31,9 @@
   " Color scheme
   Plugin 'vim-scripts/wombat256.vim'
 
+  " Ruby
+  Plugin 'thoughtbot/vim-rspec'
+
   " Base {{{
    " Used for lot of stuff
     let mapleader = ','
@@ -80,6 +83,11 @@ filetype plugin indent on    " required
 
   " Commentary {{{
   nmap <C-_> <Plug>CommentaryLine<CR>
+  " }}}
+
+  " Rspec {{{
+  map <Leader>rt :call RunCurrentSpecFile()<CR>
+  map <Leader>rs :call RunNearestSpec()<CR>
   " }}}
 " }}}
 
