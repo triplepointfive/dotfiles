@@ -33,6 +33,16 @@
 
   " Ruby
   Plugin 'thoughtbot/vim-rspec'
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'tpope/vim-rails'
+  Plugin 'tpope/vim-endwise' " Adds ends for blocks
+
+  " Completer
+  Plugin 'jiangmiao/auto-pairs'
+
+  " Search
+  Plugin 'mileszs/ack.vim'
+  Plugin 'kien/ctrlp.vim'
 
   " Base {{{
    " Used for lot of stuff
@@ -43,11 +53,11 @@
     set shiftwidth=2
     set expandtab
   " }}}
-" }}}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+  " All of your Plugins must be added before the following line
+  call vundle#end()            " required
+  filetype plugin indent on    " required
+" }}}
 
 " Plugins {{{
 
@@ -89,10 +99,30 @@ filetype plugin indent on    " required
   map <Leader>rt :call RunCurrentSpecFile()<CR>
   map <Leader>rs :call RunNearestSpec()<CR>
   " }}}
+
+  " Rubycomplete {{{
+  let g:rubycomplete_rails=1
+  let g:rubycomplete_classes_in_global=1
+  let g:rubycomplete_buffer_loading=1
+  let g:rubycomplete_include_object=1
+  let g:rubycomplete_include_objectspace=1
+  " }}}
+
+  " Ack {{{
+  nnoremap <leader>a :Ack<space>
+  " }}}
+
+  " CtrlP {{{
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+  nnoremap <F3> :CtrlP<CR>
+  let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'file': '\v\.(exe|so|dll|png|jpg)$'
+        \ }
+  " }}}
 " }}}
 
 " General {{{
-  filetype plugin indent on " Enables filetype plugin
   set number
 
   " Colorscheme {{{
@@ -128,4 +158,23 @@ filetype plugin indent on    " required
     autocmd FilterWritePre * :call DeleteTrailingWS()
     autocmd BufWritePre * :call DeleteTrailingWS()
   augroup END
+
+  " Filetypes {{{
+    " Ruby {{{
+    augroup FTRuby
+      au!
+      autocmd FileType eruby,yaml,ruby      setlocal ai et sta sw=2 sts=2
+      autocmd BufNewFile,BufRead *.html.erb set filetype=eruby.html  " load html snippets along with erb
+      autocmd FileType ruby,eruby           let g:rubycomplete_rails = 1
+      autocmd FileType ruby,eruby           let g:rubycomplete_classes_in_global=1
+      autocmd FileType ruby,eruby           let g:rubycomplete_buffer_loading= 1
+
+      " Rspec
+      " {{{
+      autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context expect let double mock aggregate_failures
+      highlight def link rubyRspec Identifier
+      " }}}
+    augroup END
+    " }}}
+  " }}}
 " }}}
