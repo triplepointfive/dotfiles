@@ -101,6 +101,7 @@
   " }}}
 
   " Rubycomplete {{{
+  autocmd FileType ruby set omnifunc=rubycomplete#Complete
   let g:rubycomplete_rails=1
   let g:rubycomplete_classes_in_global=1
   let g:rubycomplete_buffer_loading=1
@@ -124,6 +125,10 @@
 
 " General {{{
   set number
+
+  " Use git, dude!
+  set nobackup
+  set noswapfile
 
   " Colorscheme {{{
   colorscheme wombat256mod
@@ -168,7 +173,6 @@
       autocmd FileType ruby,eruby           let g:rubycomplete_rails = 1
       autocmd FileType ruby,eruby           let g:rubycomplete_classes_in_global=1
       autocmd FileType ruby,eruby           let g:rubycomplete_buffer_loading= 1
-
       " Rspec
       " {{{
       autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context expect let double mock aggregate_failures
@@ -176,5 +180,21 @@
       " }}}
     augroup END
     " }}}
+  " }}}
+
+  " GUI {{{
+  if has('gui_running')
+    set guifont=Dejavu\ Sans\ Mono\ 9
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=l
+    set guioptions-=h
+    set guioptions-=b
+    set guioptions-=R
+    set guioptions-=L
+    set showtabline=2   " show tabs in gvim, not vim
+    set guitablabel=%t  " show simple filname as tabname"
+  endif
   " }}}
 " }}}
