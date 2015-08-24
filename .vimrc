@@ -83,6 +83,9 @@
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
+
+  " Let ghc-mod do it's job
+  let g:syntastic_haskell_checkers=['']
   " }}}
 
   " Fugitive {{{
@@ -117,7 +120,7 @@
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   nnoremap <F3> :CtrlP<CR>
   let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work)$',
         \ 'file': '\v\.(exe|so|dll|png|jpg)$'
         \ }
   " }}}
@@ -129,6 +132,13 @@
   " Use git, dude!
   set nobackup
   set noswapfile
+
+  " Fix backspace issues
+  set backspace=indent,eol,start
+
+  set ai "Auto indent
+  set si "Smart indent
+  set wrap "Wrap lines"
 
   " Colorscheme {{{
   colorscheme wombat256mod
