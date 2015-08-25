@@ -44,6 +44,9 @@
   Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
 
+  " Project tree
+  Plugin 'scrooloose/nerdtree'
+
   " Base {{{
    " Used for lot of stuff
     let mapleader = ','
@@ -145,6 +148,9 @@
 
   syntax enable
   set t_Co=256
+
+  " Match wombat colors in nerd tree
+  hi Directory guifg=#8ac6f2
   " }}}
 " }}}
 
@@ -155,6 +161,31 @@
   " Treat long lines as break lines (useful when moving around in them)
   nnoremap j gj
   nnoremap k gk
+
+
+  " NERDTree {{{
+
+  " Close nerdtree after a file is selected
+  let NERDTreeQuitOnOpen = 1
+
+  function! IsNERDTreeOpen()
+      return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+  endfunction
+
+  function! ToggleFindNerd()
+    if IsNERDTreeOpen()
+      exec ':NERDTreeToggle'
+    else
+      exec ':NERDTreeFind'
+    endif
+  endfunction
+
+  " If nerd tree is closed, find current file, if open,
+  " close it
+  nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
+  nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
+
+  " }}}
 " }}}
 
 " Improvements {{{
