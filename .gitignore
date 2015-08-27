@@ -1,0 +1,10 @@
+.idea/*
+.tags*
+.env.staging
+.ruby-version
+.ruby-gemset
+.project
+.settings
+tags
+Gemfile.local
+*.swp
