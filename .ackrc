@@ -1,0 +1,5 @@
+--ignore-file=ext:log
+--ignore-file=ext:xlsx
+--ignore-dir=coverage
+--ignore-dir=.idea
+--ignore-file=is:tags
