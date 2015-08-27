@@ -1,0 +1,36 @@
+[$Version]
+update_info=yakuake.upd:2.9.9-startupnotification
+
+[Appearance]
+Skin=breeze_dark
+SkinInstalledWithKns=true
+TerminalHighlightOnManualActivation=true
+Translucency=false
+
+[Colors]
+CurrentPalette=Forty Colors
+
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
+[DownloadDialog Settings]
+Height 1080=400
+Width 1920=700
+
+[Favorite Profiles]
+Favorites=
+
+[Shortcuts]
+next-terminal=Ctrl+J
+previous-terminal=Ctrl+K
+switch-to-session-1=Alt+1
+switch-to-session-2=Alt+2
+switch-to-session-3=Alt+3
+switch-to-session-4=Alt+4
+switch-to-session-5=Alt+5
+switch-to-session-6=Alt+6
+switch-to-session-7=Alt+7
+
+[Window]
+Height=100
+Width=100
