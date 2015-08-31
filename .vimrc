@@ -90,6 +90,8 @@
 
   " Let ghc-mod do it's job
   let g:syntastic_haskell_checkers=['']
+
+  let g:syntastic_ruby_checkers=['rubocop']
   " }}}
 
   " Fugitive {{{
@@ -237,7 +239,7 @@
 
   " GUI {{{
   if has('gui_running')
-    set guifont=Dejavu\ Sans\ Mono\ 9
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
