@@ -120,6 +120,7 @@
 
   " Ack {{{
   nnoremap <leader>a :Ack<space>
+  nnoremap <leader>* :Ack<CR>
   " }}}
 
   " CtrlP {{{
@@ -145,6 +146,7 @@
 
 " General {{{
   set number
+  set autoread " supress warnings"
 
   " Use git, dude!
   set nobackup
