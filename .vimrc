@@ -252,6 +252,10 @@
     set guioptions-=L
     set showtabline=2   " show tabs in gvim, not vim
     set guitablabel=%t  " show simple filname as tabname"
+
+    " Make shift insert working, not dumping
+    map  <silent>  <S-Insert>  "+p
+    imap <silent>  <S-Insert>  <Esc>"+pa
   endif
   " }}}
 " }}}
