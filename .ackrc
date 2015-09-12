@@ -3,3 +3,4 @@
 --ignore-dir=coverage
 --ignore-dir=.idea
 --ignore-file=is:tags
+--ignore-dir=.stack-work
