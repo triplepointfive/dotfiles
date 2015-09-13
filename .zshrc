@@ -24,3 +24,12 @@ source $HOME/.oh-my-zsh/notify.plugin.zsh
 
 # What I've done for today
 alias idone="git log --since=midnight  --all --author=\"Ilya\" --format=\"%s\" | grep -v \"Revert.*\" | grep -v \"Merge pull request.*\" | sed -e \"s/DUR\-[0-9]\{3,4\}: //g\" | paste -sd \",\" -"
+
+ruby_sandbox() {
+  grep -oP "(?<=ruby [\'\"])(.*)(?=[\'\"])" Gemfile > .ruby-version
+  echo ${PWD##*/} > .ruby-gemset
+  cd ..
+  cd -
+  gem install bundler
+}
+
