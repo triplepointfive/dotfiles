@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	excludesfile = /home/maud/.gitignore
+	excludesfile = ~/.gitignore
 [user]
 	name = Ilya Smelkov
 	email = triplepointfive@gmail.com
