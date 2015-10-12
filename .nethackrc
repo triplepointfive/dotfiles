@@ -1,0 +1,23 @@
+OPTIONS=boulder:0
+OPTIONS=DECgraphics
+OPTIONS=windowtype:tty,toptenwin,hilite_pet,hpmon
+OPTIONS=fixinv,safe_pet,sortpack,tombstone,color
+OPTIONS=verbose,news,fruit:potato
+OPTIONS=dogname:Slinky
+OPTIONS=catname:Rex
+OPTIONS=pickup_types:$
+OPTIONS=nomail
+
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" uncursed "=yellow
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+MENUCOLOR="*potion*water*"=blue
+MENUCOLOR="*clear potion*"=blue
+MENUCOLOR="* holy water*"=lightblue
+MENUCOLOR="* cursed clear potion*"=orange
+MENUCOLOR="* cursed potion*called water*"=orange
+MENUCOLOR="* cursed unicorn*"=red&inverse
