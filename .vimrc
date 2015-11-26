@@ -43,6 +43,7 @@
   " Search
   Plugin 'mileszs/ack.vim'
   Plugin 'kien/ctrlp.vim'
+  Plugin 'henrik/vim-indexed-search'
 
   " UI
   Plugin 'bling/vim-airline'
