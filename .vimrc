@@ -48,6 +48,7 @@
   " UI
   Plugin 'bling/vim-airline'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
 
   " Base {{{
    " Used for lot of stuff
