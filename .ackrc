@@ -2,5 +2,9 @@
 --ignore-file=ext:xlsx
 --ignore-dir=coverage
 --ignore-dir=.idea
+--ignore-dir=log
+--ignore-dir=vendor/cache
+--ignore-dir=vendor/engines/ash/vendor/assets
+--ignore-dir=tmp
 --ignore-file=is:tags
 --ignore-dir=.stack-work
