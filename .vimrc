@@ -7,9 +7,11 @@
   call vundle#begin()
 
   Plugin 'VundleVim/Vundle.vim'
+  Plugin 'Konfekt/FastFold'
 
   " Keyword completion system, required for neco-ghc
   Plugin 'Valloric/YouCompleteMe'
+  Plugin 'alvan/vim-closetag'
 
   " Dependency for ghcmod
   Plugin 'Shougo/vimproc.vim'
@@ -36,13 +38,14 @@
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'tpope/vim-rails'
   Plugin 'tpope/vim-endwise' " Adds ends for blocks
+  Plugin 'kchmck/vim-coffee-script'
 
   " Completer
   Plugin 'jiangmiao/auto-pairs'
 
   " Search
   Plugin 'mileszs/ack.vim'
-  Plugin 'kien/ctrlp.vim'
+  Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'henrik/vim-indexed-search'
 
   " UI
@@ -89,6 +92,10 @@
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
+
+  " HTML5 checker
+  " let g:syntastic_html_tidy_exec = 'tidy5'
+  let g:syntastic_html_validator_api = 'http://localhost:8888/'
 
   " Let ghc-mod do it's job
   let g:syntastic_haskell_checkers=['']
@@ -223,6 +230,9 @@
     autocmd BufWritePre * :call DeleteTrailingWS()
   augroup END
 
+  " Beep
+  set vb
+
   " Filetypes {{{
     " Ruby {{{
     augroup FTRuby
@@ -243,7 +253,7 @@
 
   " GUI {{{
   if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14"
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
@@ -260,4 +270,7 @@
     imap <silent>  <S-Insert>  <Esc>"+pa
   endif
   " }}}
+
+  " Temp
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
 " }}}
