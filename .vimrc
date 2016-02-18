@@ -8,6 +8,8 @@
 
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'Konfekt/FastFold'
+  Plugin 'skalnik/vim-vroom'
+  Plugin 'kchmck/vim-coffee-script'
 
   " Keyword completion system, required for neco-ghc
   Plugin 'Valloric/YouCompleteMe'
@@ -38,7 +40,6 @@
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'tpope/vim-rails'
   Plugin 'tpope/vim-endwise' " Adds ends for blocks
-  Plugin 'kchmck/vim-coffee-script'
 
   " Completer
   Plugin 'jiangmiao/auto-pairs'
@@ -94,13 +95,13 @@
   let g:syntastic_check_on_wq = 0
 
   " HTML5 checker
-  " let g:syntastic_html_tidy_exec = 'tidy5'
-  let g:syntastic_html_validator_api = 'http://localhost:8888/'
+  let g:syntastic_html_tidy_exec = 'tidy5'
+  " let g:syntastic_html_validator_api = 'http://localhost:8888/'
 
   " Let ghc-mod do it's job
   let g:syntastic_haskell_checkers=['']
 
-  let g:syntastic_ruby_checkers=['rubocop']
+  let g:syntastic_ruby_checkers=['']
   " }}}
 
   " Fugitive {{{
@@ -230,8 +231,28 @@
     autocmd BufWritePre * :call DeleteTrailingWS()
   augroup END
 
+  " Delete trailing white space on save
+  func! AddSpacesInsideBrackets()
+    if (&ft=='ruby')
+      exe "normal mz"
+      %s/\((\)\(\w\)/\1 \2/ge
+      %s/\(\w\)\()\)/\1 \2/ge
+      %s/\((\)\("\)/\1 \2/ge
+      %s/\("\)\()\)/\1 \2/ge
+      %s/\((\)\(:\)/\1 \2/ge
+      %s/\(\[\)\([\w":]\)/\1 \2/ge
+      %s/\([\w"]\)\(\]\)/\1 \2/ge
+      exe "normal `z"
+    endif
+  endfunc
+  nmap <silent> <leader>u <ESC>:call AddSpacesInsideBrackets()<CR>
+
   " Beep
   set vb
+
+  " Autosave files on focus lost.
+  au FocusLost * :wa
+  set autowrite
 
   " Filetypes {{{
     " Ruby {{{
@@ -246,6 +267,12 @@
       " {{{
       autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context expect let double mock aggregate_failures
       highlight def link rubyRspec Identifier
+      " }}}
+
+      " Minitest
+      " {{{
+      autocmd BufRead *_test.rb syn keyword rubyMinitest describe it before subject let mock aggregate_failures
+      highlight def link rubyMinitest Identifier
       " }}}
     augroup END
     " }}}

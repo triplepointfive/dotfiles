@@ -18,6 +18,13 @@ export PATH="$HOME/.cabal/bin:$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Default time before notification.
+# export NOTIFY_COMMAND_COMPLETE_TIMEOUT="15"
+# source $HOME/.oh-my-zsh/notify.plugin.zsh
+
+# PostgresApp
+PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH"
+
 # What I've done for today
 alias idone="git log --since=midnight  --all --author=\"Ilya\" --format=\"%s\" | grep -v \"Revert.*\" | grep -v \"Merge pull request.*\" | sed -e \"s/DUR\-[0-9X]\{3,4\}: //g\" | paste -sd \",\" -"
 

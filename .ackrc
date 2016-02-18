@@ -3,8 +3,12 @@
 --ignore-dir=coverage
 --ignore-dir=.idea
 --ignore-dir=log
+--ignore-dir=vendor/assets
 --ignore-dir=vendor/cache
 --ignore-dir=vendor/engines/ash/vendor/assets
 --ignore-dir=tmp
 --ignore-file=is:tags
 --ignore-dir=.stack-work
+--type-add=ruby:ext:rb,rhtml,rjs,rxml,erb,rake,spec
+--type-add=ruby:is:Rakefile
+--type-add=ruby:firstlinematch:/^#!.*\bruby/
