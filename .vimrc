@@ -54,6 +54,9 @@
   Plugin 'scrooloose/nerdtree'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+  " C++
+  Plugin 'alepez/vim-gtest'
+
   " Base {{{
    " Used for lot of stuff
     let mapleader = ','
@@ -274,6 +277,14 @@
       autocmd BufRead *_test.rb syn keyword rubyMinitest describe it before subject let mock aggregate_failures
       highlight def link rubyMinitest Identifier
       " }}}
+    augroup END
+    " }}}
+
+    " GTest {{{
+    augroup GTest
+      au!
+      autocmd BufRead *_test.cpp syn match gtest /\(TEST\|EXPECT_[A-Z]*\|ASSERT_[A-Z]*\)/
+      highlight def link gtest Identifier
     augroup END
     " }}}
   " }}}
