@@ -55,7 +55,7 @@
   Plugin 'Xuyuanp/nerdtree-git-plugin'
 
   " C++
-  Plugin 'alepez/vim-gtest'
+  Plugin 'octol/vim-cpp-enhanced-highlight'
 
   " Base {{{
    " Used for lot of stuff
@@ -65,6 +65,7 @@
     set tabstop=2
     set shiftwidth=2
     set expandtab
+    au FileType cpp setl sw=4 sts=4 et
   " }}}
 
   " All of your Plugins must be added before the following line
@@ -75,6 +76,8 @@
 " Plugins {{{
 
   " YouCompleteMe {{{
+  " Disable checkers for cpp since it has conflicts with syntastic.
+  let g:ycm_show_diagnostics_ui = 0
   " }}}
 
   " neco-ghc {{{
@@ -92,6 +95,9 @@
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
+  let g:syntastic_cpp_checkers = ["gcc"]
+  let g:syntastic_cpp_compiler = 'g++'
+  let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 0
@@ -277,14 +283,6 @@
       autocmd BufRead *_test.rb syn keyword rubyMinitest describe it before subject let mock aggregate_failures
       highlight def link rubyMinitest Identifier
       " }}}
-    augroup END
-    " }}}
-
-    " GTest {{{
-    augroup GTest
-      au!
-      autocmd BufRead *_test.cpp syn match gtest /\(TEST\|EXPECT_[A-Z]*\|ASSERT_[A-Z]*\)/
-      highlight def link gtest Identifier
     augroup END
     " }}}
   " }}}
