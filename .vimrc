@@ -280,7 +280,7 @@
 
       " Minitest
       " {{{
-      autocmd BufRead *_test.rb syn keyword rubyMinitest describe it before subject let mock aggregate_failures
+      autocmd BufRead *_test.rb syn keyword rubyMinitest describe it before after subject let mock aggregate_failures
       highlight def link rubyMinitest Identifier
       " }}}
     augroup END
