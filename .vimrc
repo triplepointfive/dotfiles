@@ -20,7 +20,7 @@
 
   " Haskell
   Plugin 'eagletmt/ghcmod-vim'
-  Plugin 'vim-scripts/haskell.vim'
+  Plugin 'neovimhaskell/haskell-vim'
   Plugin 'eagletmt/neco-ghc'
 
   " Syntax checker
@@ -65,7 +65,6 @@
     set tabstop=2
     set shiftwidth=2
     set expandtab
-    au FileType cpp setl sw=4 sts=4 et
   " }}}
 
   " All of your Plugins must be added before the following line
@@ -103,6 +102,10 @@
   let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
 
+  " Ignore annoying messages
+  let g:syntastic_eruby_ruby_quiet_messages =
+      \ {'regex': '\(possibly useless use of a variable in void context\|possibly useless use of \+\)'}
+
   " HTML5 checker
   let g:syntastic_html_tidy_exec = 'tidy5'
   " let g:syntastic_html_validator_api = 'http://localhost:8888/'
@@ -138,8 +141,8 @@
   " }}}
 
   " Ack {{{
-  nnoremap <leader>a :Ack<space>
-  nnoremap <leader>* :Ack<CR>
+  nnoremap <leader>a :Ack!<space>
+  nnoremap <leader>* :Ack!<CR>
   " }}}
 
   " CtrlP {{{
@@ -191,7 +194,7 @@
 
 " Binding {{{
   " Fast quit
-  nnoremap <leader>q :q<CR>
+  nnoremap <leader>q :bd<CR>
 
   " Treat long lines as break lines (useful when moving around in them)
   nnoremap j gj
