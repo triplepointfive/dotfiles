@@ -10,7 +10,7 @@ plugins=(git notify)
 source $ZSH/oh-my-zsh.sh
 
 # Add RVM and cabal packages to PATH for scripting
-export PATH="$HOME/.cabal/bin:$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rvm/bin:$HOME/.cabal/bin:$PATH"
 
 # Load the default .profile
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
@@ -22,11 +22,19 @@ export PATH="$HOME/.cabal/bin:$PATH:$HOME/.rvm/bin"
 # export NOTIFY_COMMAND_COMPLETE_TIMEOUT="15"
 # source $HOME/.oh-my-zsh/notify.plugin.zsh
 
+# GO
+GOPATH=$HOME/go
+PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
+
 # PostgresApp
-PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH"
+PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
 
 # What I've done for today
 alias idone="git log --since=midnight  --all --author=\"Ilya\" --format=\"%s\" | grep -v \"Revert.*\" | grep -v \"Merge pull request.*\" | sed -e \"s/DUR\-[0-9X]\{3,4\}: //g\" | paste -sd \",\" -"
+
+# Fixes for rvm env's built vim
+alias vim='rvm system do /usr/local/bin/vim $@'
+alias mvim='rvm system do /usr/local/bin/mvim $@'
 
 ruby_sandbox() {
   grep -oP "(?<=ruby [\'\"])(.*)(?=[\'\"])" Gemfile > .ruby-version

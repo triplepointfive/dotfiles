@@ -149,7 +149,7 @@
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   nnoremap <F3> :CtrlP<CR>
   let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules)$',
+        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage)$',
         \ 'file': '\v\.(exe|so|dll|png|jpg)$'
         \ }
   " }}}

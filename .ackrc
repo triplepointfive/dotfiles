@@ -10,6 +10,7 @@
 --ignore-dir=public/assets
 --ignore-file=is:tags
 --ignore-dir=.stack-work
+--ignore-dir=public/uploads
 --type-add=ruby:ext:rb,rhtml,rjs,rxml,erb,rake,spec
 --type-add=ruby:is:Rakefile
 --type-add=ruby:firstlinematch:/^#!.*\bruby/
