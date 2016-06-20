@@ -28,9 +28,11 @@
 
   " Git integration
   Plugin 'tpope/vim-fugitive'
+  Plugin 'airblade/vim-gitgutter'
 
   " Comments
   Plugin 'tpope/vim-commentary'
+  Plugin 'AndrewRadev/switch.vim'
 
   " Color scheme
   Plugin 'vim-scripts/wombat256.vim'
@@ -112,8 +114,6 @@
 
   " Let ghc-mod do it's job
   let g:syntastic_haskell_checkers=['']
-
-  let g:syntastic_ruby_checkers=['']
   " }}}
 
   " Fugitive {{{
