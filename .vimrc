@@ -18,6 +18,13 @@
   " Dependency for ghcmod
   Plugin 'Shougo/vimproc.vim'
 
+  " Track the engine.
+  Plugin 'SirVer/ultisnips'
+
+  " Snippets are separated from the engine. Add this if you want them:
+  Plugin 'honza/vim-snippets'
+  Plugin 'sheerun/vim-polyglot'
+
   " Haskell
   Plugin 'eagletmt/ghcmod-vim'
   Plugin 'neovimhaskell/haskell-vim'
@@ -53,11 +60,15 @@
 
   " UI
   Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'scrooloose/nerdtree'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
 
   " C++
   Plugin 'octol/vim-cpp-enhanced-highlight'
+
+  " JS
+  Plugin 'isRuslan/vim-es6'
 
   " Base {{{
    " Used for lot of stuff
@@ -79,6 +90,19 @@
   " YouCompleteMe {{{
   " Disable checkers for cpp since it has conflicts with syntastic.
   let g:ycm_show_diagnostics_ui = 0
+  " }}}
+
+  " vim-closetag
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.erb"
+
+  " Snippets {{{
+  " Trigger configuration.
+  let g:UltiSnipsExpandTrigger="<c-l>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+  " If you want :UltiSnipsEdit to split your window.
+  let g:UltiSnipsEditSplit="vertical"
   " }}}
 
   " neco-ghc {{{
@@ -309,9 +333,6 @@
     imap <silent>  <S-Insert>  <Esc>"+pa
   endif
   " }}}
-
-  " Temp
-  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
 " }}}
 
 if has("gui_macvim")
