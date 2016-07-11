@@ -23,7 +23,8 @@
 
   " Snippets are separated from the engine. Add this if you want them:
   Plugin 'honza/vim-snippets'
-  Plugin 'sheerun/vim-polyglot'
+  " Plugin 'sheerun/vim-polyglot'
+  Plugin 'slim-template/vim-slim'
 
   " Haskell
   Plugin 'eagletmt/ghcmod-vim'
@@ -128,6 +129,16 @@
   let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
 
+  let g:syntastic_error_symbol = '❌'
+  let g:syntastic_style_error_symbol = '⁉️'
+  let g:syntastic_warning_symbol = '⚠️'
+  let g:syntastic_style_warning_symbol = '💩'
+
+  highlight link SyntasticErrorSign SignColumn
+  highlight link SyntasticWarningSign SignColumn
+  highlight link SyntasticStyleErrorSign SignColumn
+  highlight link SyntasticStyleWarningSign SignColumn
+
   " Ignore annoying messages
   let g:syntastic_eruby_ruby_quiet_messages =
       \ {'regex': '\(possibly useless use of a variable in void context\|possibly useless use of \+\)'}
@@ -138,6 +149,9 @@
 
   " Let ghc-mod do it's job
   let g:syntastic_haskell_checkers=['']
+
+  " JS
+  let g:syntastic_javascript_checkers = ['eslint']
   " }}}
 
   " Fugitive {{{
@@ -173,7 +187,7 @@
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   nnoremap <F3> :CtrlP<CR>
   let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage)$',
+        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage|vendor\/cache)$',
         \ 'file': '\v\.(exe|so|dll|png|jpg)$'
         \ }
   " }}}
