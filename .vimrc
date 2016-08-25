@@ -70,6 +70,8 @@
 
   " JS
   Plugin 'isRuslan/vim-es6'
+  Plugin 'HerringtonDarkholme/yats.vim'
+  Plugin 'Quramy/tsuquyomi'
 
   " Base {{{
    " Used for lot of stuff
@@ -109,7 +111,7 @@
   " neco-ghc {{{
   setlocal omnifunc=necoghc#omnifunc
   let g:necoghc_enable_detailed_browse = 1
-  let g:ycm_semantic_triggers = {'haskell' : ['.']}
+  let g:ycm_semantic_triggers = { 'haskell' : ['.'], 'typescript' : ['.'] }
   " }}}
 
   " ghcmod-vim {{{
@@ -133,6 +135,7 @@
   let g:syntastic_style_error_symbol = '⁉️'
   let g:syntastic_warning_symbol = '⚠️'
   let g:syntastic_style_warning_symbol = '💩'
+  let g:tsuquyomi_disable_quickfix = 1
 
   highlight link SyntasticErrorSign SignColumn
   highlight link SyntasticWarningSign SignColumn
@@ -152,6 +155,7 @@
 
   " JS
   let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
   " }}}
 
   " Fugitive {{{
