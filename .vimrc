@@ -10,6 +10,7 @@
   Plugin 'Konfekt/FastFold'
   Plugin 'skalnik/vim-vroom'
   Plugin 'kchmck/vim-coffee-script'
+  Plugin 'bronson/vim-trailing-whitespace'
 
   " Keyword completion system, required for neco-ghc
   Plugin 'Valloric/YouCompleteMe'
@@ -43,7 +44,7 @@
   Plugin 'AndrewRadev/switch.vim'
 
   " Color scheme
-  Plugin 'vim-scripts/wombat256.vim'
+  Plugin 'flazz/vim-colorschemes'
 
   " Ruby
   Plugin 'thoughtbot/vim-rspec'
@@ -53,6 +54,7 @@
 
   " Completer
   Plugin 'jiangmiao/auto-pairs'
+  Plugin 'majutsushi/tagbar'
 
   " Search
   Plugin 'mileszs/ack.vim'
@@ -64,6 +66,7 @@
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'scrooloose/nerdtree'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'yggdroot/indentline'
 
   " C++
   Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -141,6 +144,10 @@
   highlight link SyntasticWarningSign SignColumn
   highlight link SyntasticStyleErrorSign SignColumn
   highlight link SyntasticStyleWarningSign SignColumn
+
+  " Indentline
+  let g:indentLine_char = '│'
+  let g:indentLine_leadingSpaceChar = '·'
 
   " Ignore annoying messages
   let g:syntastic_eruby_ruby_quiet_messages =
@@ -244,6 +251,7 @@
   nnoremap j gj
   nnoremap k gk
 
+  nmap <F8> :TagbarToggle<CR>
 
   " NERDTree {{{
 
@@ -272,36 +280,13 @@
 
 " Improvements {{{
   " Delete trailing white space on save
-  func! DeleteTrailingWS()
-    if !&binary && &filetype != 'diff'
-      exe "normal mz"
-      %s/\s\+$//ge
-      exe "normal `z"
-    endif
-  endfunc
   augroup whitespace
     autocmd!
-    autocmd FileWritePre * :call DeleteTrailingWS()
-    autocmd FileAppendPre * :call DeleteTrailingWS()
-    autocmd FilterWritePre * :call DeleteTrailingWS()
-    autocmd BufWritePre * :call DeleteTrailingWS()
+    autocmd FileWritePre * :FixWhitespace
+    autocmd FileAppendPre * :FixWhitespace
+    autocmd FilterWritePre * :FixWhitespace
+    autocmd BufWritePre * :FixWhitespace
   augroup END
-
-  " Delete trailing white space on save
-  func! AddSpacesInsideBrackets()
-    if (&ft=='ruby')
-      exe "normal mz"
-      %s/\((\)\(\w\)/\1 \2/ge
-      %s/\(\w\)\()\)/\1 \2/ge
-      %s/\((\)\("\)/\1 \2/ge
-      %s/\("\)\()\)/\1 \2/ge
-      %s/\((\)\(:\)/\1 \2/ge
-      %s/\(\[\)\([\w":]\)/\1 \2/ge
-      %s/\([\w"]\)\(\]\)/\1 \2/ge
-      exe "normal `z"
-    endif
-  endfunc
-  nmap <silent> <leader>u <ESC>:call AddSpacesInsideBrackets()<CR>
 
   " Beep
   set vb
