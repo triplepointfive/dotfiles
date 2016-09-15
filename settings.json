@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "vim.useCtrlKeys": true,
+    "files.autoSave": "onFocusChange",
+
+    // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
+    "editor.tabSize": 2,
+
+    "files.trimTrailingWhitespace": true
+}
