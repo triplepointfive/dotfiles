@@ -43,7 +43,7 @@ emoji() {
 }
 
 git_emoji() {
-  git commit -m  "$1 `emoji()` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\//#/'`"
+  git commit -m  "$1 `emoji` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\//#/'`"
 }
 
 # Fixes for rvm env's built vim
