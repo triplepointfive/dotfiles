@@ -45,6 +45,7 @@
 
   " Color scheme
   Plugin 'flazz/vim-colorschemes'
+  Plugin 'lifepillar/vim-solarized8'
 
   " Ruby
   Plugin 'thoughtbot/vim-rspec'
@@ -75,6 +76,9 @@
   Plugin 'isRuslan/vim-es6'
   Plugin 'HerringtonDarkholme/yats.vim'
   Plugin 'Quramy/tsuquyomi'
+  Plugin 'leafgarland/typescript-vim'
+
+  Plugin 'ivalkeen/vim-simpledb'
 
   " Base {{{
    " Used for lot of stuff
@@ -192,15 +196,29 @@
   " Ack {{{
   nnoremap <leader>a :Ack!<space>
   nnoremap <leader>* :Ack!<CR>
+  if executable('rg')
+    let g:ackprg = 'rg --vimgrep'
+  endif
   " }}}
 
   " CtrlP {{{
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   nnoremap <F3> :CtrlP<CR>
   let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage|vendor\/cache)$',
+        \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage|vendor\/cache|platforms)$',
         \ 'file': '\v\.(exe|so|dll|png|jpg)$'
         \ }
+  " if executable('ag')
+  "   " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+  "     set grepprg=ag\ --nogroup\ --nocolor
+  "   " Use ag in CtrlP for listing files. Lightning fast, respects
+  "   " .gitignore
+  "   " and .agignore. Ignores hidden files by default.
+  "   let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+  " else
+  "   "ctrl+p ignore files in .gitignore
+  "   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  " endif
   " }}}
   " vim-airline {{{
   set laststatus=2
@@ -208,7 +226,7 @@
     let g:airline_symbols = {}
   endif
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = 'powerlineish'
+  let g:airline_theme = 'solarized' " powerlineish
 
   let g:airline#extensions#tabline#enabled = 1
   " }}}
@@ -224,6 +242,9 @@
   " Use git, dude!
   set nobackup
   set noswapfile
+  set incsearch " Search by typing
+  set hlsearch " Highlight search matches
+  nnoremap <CR> :nohlsearch<CR>
 
   " Fix backspace issues
   set backspace=indent,eol,start
@@ -233,7 +254,8 @@
   set wrap "Wrap lines"
 
   " Colorscheme {{{
-  colorscheme wombat256mod
+  " colorscheme wombat256mod
+  color solarized8_light_high
 
   syntax enable
   set t_Co=256
@@ -321,7 +343,7 @@
 
   " GUI {{{
   if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14"
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h18" "14
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar

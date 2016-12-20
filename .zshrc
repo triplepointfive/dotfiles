@@ -2,9 +2,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 export DEFAULT_USER="$USER"
-ZSH_THEME="agnoster2"
+ZSH_THEME="sunrise" # agnoster2
 
-plugins=(git notify)
+plugins=(git notify zsh-autosuggestions)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -43,7 +43,7 @@ emoji() {
 }
 
 git_emoji() {
-  git commit -m  "$1 `emoji` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\//#/'`"
+  git commit -m  "$1 `emoji` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\//#/' | sed -e 's/[^0-9\#]//g'`"
 }
 
 # Fixes for rvm env's built vim
@@ -60,3 +60,9 @@ ruby_sandbox() {
 
 alias gj=git_emoji
 alias emj=emoji
+
+###-tns-completion-start-###
+if [ -f /Users/Smelkov/.tnsrc ]; then
+    source /Users/Smelkov/.tnsrc
+fi
+###-tns-completion-end-###
