@@ -244,7 +244,7 @@
   set noswapfile
   set incsearch " Search by typing
   set hlsearch " Highlight search matches
-  nnoremap <CR> :nohlsearch<CR>
+  nnoremap <C-n> :nohlsearch<CR>
 
   " Fix backspace issues
   set backspace=indent,eol,start
