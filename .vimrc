@@ -55,7 +55,6 @@
 
   " Completer
   Plugin 'jiangmiao/auto-pairs'
-  Plugin 'majutsushi/tagbar'
 
   " Search
   Plugin 'mileszs/ack.vim'
@@ -78,7 +77,10 @@
   Plugin 'Quramy/tsuquyomi'
   Plugin 'leafgarland/typescript-vim'
 
-  Plugin 'ivalkeen/vim-simpledb'
+  Plugin 'tikhomirov/vim-glsl' " GLSL highlight
+
+  Plugin 'w0rp/ale' " Async linter
+  Plugin 'mhinz/vim-sayonara' " Fast buffer killer
 
   " Base {{{
    " Used for lot of stuff
@@ -267,7 +269,8 @@
 
 " Binding {{{
   " Fast quit
-  nnoremap <leader>q :bd<CR>
+  " :bd<CR>
+  nnoremap <leader>q :Sayonara<CR>
 
   " Treat long lines as break lines (useful when moving around in them)
   nnoremap j gj
