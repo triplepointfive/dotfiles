@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export DEFAULT_USER="$USER"
 ZSH_THEME="sunrise" # agnoster2
 
-plugins=(git notify zsh-autosuggestions)
+plugins=(git notify zsh-autosuggestions git-flow-completion)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -26,11 +26,14 @@ setopt correct
 # source $HOME/.oh-my-zsh/notify.plugin.zsh
 
 # GO
-GOPATH=$HOME/go
-PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
+export GOPATH=$(go env GOPATH)
+PATH=$PATH:$(go env GOPATH)/bin
 
 # PostgresApp
 PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
+
+# Pokemon
+PATH="$HOME/Source/Pokemon-Terminal:${PATH}"
 
 # Cat with colors
 alias ccat='pygmentize -g -O style=colorful'
