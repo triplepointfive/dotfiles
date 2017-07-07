@@ -33,7 +33,7 @@
   Plugin 'eagletmt/neco-ghc'
 
   " Syntax checker
-  Plugin 'scrooloose/syntastic'
+  " Plugin 'scrooloose/syntastic'
 
   " Git integration
   Plugin 'tpope/vim-fugitive'
@@ -71,16 +71,26 @@
   " C++
   Plugin 'octol/vim-cpp-enhanced-highlight'
 
+  " Go
+  Plugin 'fatih/vim-go'
+
   " JS
   Plugin 'isRuslan/vim-es6'
   Plugin 'HerringtonDarkholme/yats.vim'
   Plugin 'Quramy/tsuquyomi'
   Plugin 'leafgarland/typescript-vim'
 
+  " Markdown
+  " Plugin 'godlygeek/tabular'
+  " Plugin 'plasticboy/vim-markdown'
+
   Plugin 'tikhomirov/vim-glsl' " GLSL highlight
 
   Plugin 'w0rp/ale' " Async linter
   Plugin 'mhinz/vim-sayonara' " Fast buffer killer
+  Plugin 'easymotion/vim-easymotion' " Fast motion
+
+  Plugin 'johngrib/vim-game-code-break' " Vim game
 
   " Base {{{
    " Used for lot of stuff
@@ -90,19 +100,22 @@
     set tabstop=2
     set shiftwidth=2
     set expandtab
+
+    set wildmenu " Show list instead of just completing
   " }}}
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
   filetype plugin indent on    " required
+
 " }}}
 
 " Plugins {{{
 
-  " YouCompleteMe {{{
-  " Disable checkers for cpp since it has conflicts with syntastic.
-  let g:ycm_show_diagnostics_ui = 0
-  " }}}
+  " " YouCompleteMe {{{
+  " " Disable checkers for cpp since it has conflicts with syntastic.
+  " let g:ycm_show_diagnostics_ui = 0
+  " " }}}
 
   " vim-closetag
   let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.erb"
@@ -132,19 +145,19 @@
   set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
-  let g:syntastic_cpp_checkers = ["gcc"]
-  let g:syntastic_cpp_compiler = 'g++'
-  let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 0
-  let g:syntastic_check_on_wq = 0
+  " let g:syntastic_cpp_checkers = ["gcc"]
+  " let g:syntastic_cpp_compiler = 'g++'
+  " let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+  " let g:syntastic_always_populate_loc_list = 1
+  " let g:syntastic_auto_loc_list = 1
+  " let g:syntastic_check_on_open = 0
+  " let g:syntastic_check_on_wq = 0
 
-  let g:syntastic_error_symbol = '❌'
-  let g:syntastic_style_error_symbol = '⁉️'
-  let g:syntastic_warning_symbol = '⚠️'
-  let g:syntastic_style_warning_symbol = '💩'
-  let g:tsuquyomi_disable_quickfix = 1
+  " let g:syntastic_error_symbol = '❌'
+  " let g:syntastic_style_error_symbol = '⁉️'
+  " let g:syntastic_warning_symbol = '⚠️'
+  " let g:syntastic_style_warning_symbol = '💩'
+  " let g:tsuquyomi_disable_quickfix = 1
 
   highlight link SyntasticErrorSign SignColumn
   highlight link SyntasticWarningSign SignColumn
@@ -155,21 +168,21 @@
   let g:indentLine_char = '│'
   let g:indentLine_leadingSpaceChar = '·'
 
-  " Ignore annoying messages
-  let g:syntastic_eruby_ruby_quiet_messages =
-      \ {'regex': '\(possibly useless use of a variable in void context\|possibly useless use of \+\)'}
+  " " Ignore annoying messages
+  " let g:syntastic_eruby_ruby_quiet_messages =
+  "     \ {'regex': '\(possibly useless use of a variable in void context\|possibly useless use of \+\)'}
 
-  " HTML5 checker
-  let g:syntastic_html_tidy_exec = 'tidy5'
-  " let g:syntastic_html_validator_api = 'http://localhost:8888/'
+  " " HTML5 checker
+  " let g:syntastic_html_tidy_exec = 'tidy5'
+  " " let g:syntastic_html_validator_api = 'http://localhost:8888/'
 
-  " Let ghc-mod do it's job
-  let g:syntastic_haskell_checkers=['']
+  " " Let ghc-mod do it's job
+  " let g:syntastic_haskell_checkers=['']
 
-  " JS
-  let g:syntastic_javascript_checkers = ['eslint']
-  let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-  " }}}
+  " " JS
+  " let g:syntastic_javascript_checkers = ['eslint']
+  " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+  " " }}}
 
   " Fugitive {{{
   nnoremap <leader>gs :Gstatus<cr>
@@ -233,7 +246,8 @@
   let g:airline#extensions#tabline#enabled = 1
   " }}}
   " Rspec {{{
-  let g:rspec_command = "!rspec --no-color {spec}"
+  let g:rspec_runner = "os_x_iterm2"
+  let g:rspec_command = "!spring rspec --color {spec}"
   " }}}
 " }}}
 
@@ -346,6 +360,10 @@
 
   " GUI {{{
   if has('gui_running')
+    " Ligatures
+    " set macligatures
+    " set guifont=Fira\ Code:h18
+
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h18" "14
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
