@@ -9,6 +9,13 @@ plugins=(git notify zsh-autosuggestions git-flow-completion)
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
+# GO
+export GOPATH=$(go env GOPATH)
+PATH=$PATH:$(go env GOPATH)/bin
+
+# PostgresApp
+PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
+
 # Add RVM and cabal packages to PATH for scripting
 export PATH="$HOME/.rvm/bin:$HOME/.cabal/bin:$PATH"
 
@@ -24,16 +31,6 @@ setopt correct
 # Default time before notification.
 # export NOTIFY_COMMAND_COMPLETE_TIMEOUT="15"
 # source $HOME/.oh-my-zsh/notify.plugin.zsh
-
-# GO
-export GOPATH=$(go env GOPATH)
-PATH=$PATH:$(go env GOPATH)/bin
-
-# PostgresApp
-PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
-
-# Pokemon
-PATH="$HOME/Source/Pokemon-Terminal:${PATH}"
 
 # Cat with colors
 alias ccat='pygmentize -g -O style=colorful'
