@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "/usr/local/lib/node_modules/stylelint-scss"
+  ],
+  "extends": [
+    "/usr/local/lib/node_modules/stylelint-rscss/config",
+    "/usr/local/lib/node_modules/stylelint-config-standard"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [ true, {
+      "ignoreAtRules": [
+        "extend"
+      ]
+    }]
+  }
+}
