@@ -14,3 +14,6 @@ Gemfile.local
 cabal.sandbox.config
 dist
 *.prof
+.DS_Store
+.undodir/
+Session.vim
