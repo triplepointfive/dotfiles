@@ -2,7 +2,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'skalnik/vim-vroom'
 Plugin 'kchmck/vim-coffee-script'
-" Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'bronson/vim-trailing-whitespace'
 
 " Keyword completion system, required for neco-ghc
 Plugin 'Valloric/YouCompleteMe'
@@ -58,6 +58,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'yggdroot/indentline'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'unblevable/quick-scope' " Highlight matches of FfTt.
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -74,7 +76,6 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'w0rp/ale' " Async linter
 Plugin 'mhinz/vim-sayonara' " Fast buffer killer
 Plugin 'easymotion/vim-easymotion' " Fast motion
-Plugin 'thaerkh/vim-workspace' " Workspace + autosave + trim spaces
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

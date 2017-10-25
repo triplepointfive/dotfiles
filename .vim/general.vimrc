@@ -19,11 +19,11 @@ set wildmenu
 set vb
 
 " Autosave files on focus lost.
-" au FocusLost * :wa
-" set autowrite
+au FocusLost * :wa
+set autowrite
 
-" Show numbers
-set number
+" Show hybrid line numbers
+set number relativenumber
 
 " Supress warnings
 set autoread

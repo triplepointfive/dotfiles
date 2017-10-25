@@ -30,6 +30,7 @@ if has("gui_macvim")
   noremap <D-0> :tablast<CR>
 endif
 
-" {{{
-  nnoremap <leader>s :ToggleWorkspace<CR>
+" Ack {{{
+  nnoremap <leader>a :Ack!<space>
+  nnoremap <leader>* :Ack!<CR>
 " }}}

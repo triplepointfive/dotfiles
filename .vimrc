@@ -3,7 +3,22 @@ source $HOME/.vim/general.vimrc
 source $HOME/.vim/plugins.vimrc
 source $HOME/.vim/keys.vimrc
 
+" Delete trailing white space on save
+augroup whitespace
+  autocmd!
+  autocmd FileWritePre * :FixWhitespace
+  autocmd FileAppendPre * :FixWhitespace
+  autocmd FilterWritePre * :FixWhitespace
+  autocmd BufWritePre * :FixWhitespace
+augroup END
+
+" Colorscheme
+color solarized8_light_high
+
 " Plugins {{{
+  " numbers.vim
+  let g:numbers_exclude = ['nerdtree']
+
 
   " vim-closetag
   let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.erb"
@@ -42,8 +57,6 @@ source $HOME/.vim/keys.vimrc
   " }}}
 
   " Ack {{{
-  nnoremap <leader>a :Ack!<space>
-  nnoremap <leader>* :Ack!<CR>
   if executable('rg')
     let g:ackprg = 'rg --vimgrep'
   endif
@@ -51,7 +64,6 @@ source $HOME/.vim/keys.vimrc
 
   " CtrlP {{{
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-  nnoremap <F3> :CtrlP<CR>
   let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/](.git|.hg|.svn|dist|.cabal-sandbox|.stack-work|bower_components|node_modules|coverage|vendor\/cache|platforms)$',
         \ 'file': '\v\.(exe|so|dll|png|jpg)$'
@@ -69,21 +81,7 @@ source $HOME/.vim/keys.vimrc
   " }}}
 " }}}
 
-" General {{{
-
-  " Colorscheme {{{
-  " colorscheme wombat256mod
-  color solarized8_light_high
-
-  " Match wombat colors in nerd tree
-  hi Directory guifg=#8ac6f2
-  " }}}
-" }}}
-
-" Binding {{{
-
-  " NERDTree {{{
-
+" NERDTree {{{
   " Close nerdtree after a file is selected
   let NERDTreeQuitOnOpen = 1
 
@@ -99,11 +97,9 @@ source $HOME/.vim/keys.vimrc
     endif
   endfunction
 
-  " If nerd tree is closed, find current file, if open,
-  " close it
-  nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-  nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
-
+  " If nerd tree is closed, find current file, if open, close it
+    nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
+    nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
   " }}}
 " }}}
 
@@ -134,10 +130,6 @@ source $HOME/.vim/keys.vimrc
 
   " GUI {{{
   if has('gui_running')
-    " Ligatures
-    " set macligatures
-    " set guifont=Fira\ Code:h18
-
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h18" "14
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
