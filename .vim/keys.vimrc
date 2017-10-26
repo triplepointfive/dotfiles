@@ -11,9 +11,16 @@ nnoremap <C-n> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
 
-" Commentary {{{
-  nmap <C-_> <Plug>CommentaryLine<CR>
-" }}}
+" Commentary
+nmap <C-_> <Plug>CommentaryLine<CR>
+
+" Ack
+nnoremap <leader>a :Ack!<space>
+nnoremap <leader>* :Ack!<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 
 if has("gui_macvim")
   " Switch to specific tab numbers with Command-number
@@ -29,8 +36,3 @@ if has("gui_macvim")
   " Command-0 goes to the last tab
   noremap <D-0> :tablast<CR>
 endif
-
-" Ack {{{
-  nnoremap <leader>a :Ack!<space>
-  nnoremap <leader>* :Ack!<CR>
-" }}}

@@ -33,7 +33,6 @@ Plugin 'airblade/vim-gitgutter'
 
 " Comments
 Plugin 'tpope/vim-commentary'
-Plugin 'AndrewRadev/switch.vim'
 
 " Color scheme
 Plugin 'flazz/vim-colorschemes'
@@ -43,6 +42,7 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise' " Adds ends for blocks
+Plugin 'thoughtbot/vim-rspec'
 
 " Completer
 Plugin 'jiangmiao/auto-pairs'
@@ -59,7 +59,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'yggdroot/indentline'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'unblevable/quick-scope' " Highlight matches of FfTt.
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -73,9 +72,12 @@ Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 
-Plugin 'w0rp/ale' " Async linter
-Plugin 'mhinz/vim-sayonara' " Fast buffer killer
+Plugin 'w0rp/ale'                  " Async linter
+Plugin 'mhinz/vim-sayonara'        " Fast buffer killer
 Plugin 'easymotion/vim-easymotion' " Fast motion
+Plugin 'unblevable/quick-scope'    " Highlight matches of FfTt.
+Plugin 'AndrewRadev/switch.vim'    " Switch one block of code to similiar.
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

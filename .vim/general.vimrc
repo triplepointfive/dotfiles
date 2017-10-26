@@ -4,8 +4,9 @@ set t_Co=256
 " Be iMproved, required
 set nocompatible
 
-" Required
-filetype off
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
 
 " Tabs
 set tabstop=2
@@ -47,5 +48,5 @@ set ai
 " Smart indent
 set si
 
-" Wrap lines"
+" Wrap lines
 set wrap

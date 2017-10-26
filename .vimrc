@@ -2,6 +2,7 @@ source $HOME/.vim/init.vimrc
 source $HOME/.vim/general.vimrc
 source $HOME/.vim/plugins.vimrc
 source $HOME/.vim/keys.vimrc
+source $HOME/.vim/plugins_config.vimrc
 
 " Delete trailing white space on save
 augroup whitespace
