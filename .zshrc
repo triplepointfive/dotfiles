@@ -14,7 +14,7 @@ export GOPATH=$(go env GOPATH)
 PATH=$PATH:$(go env GOPATH)/bin
 
 # PostgresApp
-PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.5/bin"
+PATH="$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin"
 
 # Add RVM and cabal packages to PATH for scripting
 export PATH="$HOME/.rvm/bin:$HOME/.cabal/bin:$PATH"
@@ -27,6 +27,9 @@ export PATH="$HOME/.rvm/bin:$HOME/.cabal/bin:$PATH"
 
 # Fixes misspells
 setopt correct
+
+# Ignore commands starting with space
+setopt HIST_IGNORE_SPACE
 
 # Default time before notification.
 # export NOTIFY_COMMAND_COMPLETE_TIMEOUT="15"
