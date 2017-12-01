@@ -1,31 +1,25 @@
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'skalnik/vim-vroom'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'bronson/vim-trailing-whitespace'
 
 " Keyword completion system, required for neco-ghc
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'alvan/vim-closetag'
 
-" Dependency for ghcmod
-Plugin 'Shougo/vimproc.vim'
+" Snippets
+Plugin 'SirVer/ultisnips'   " Track the engine.
+Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-" Plugin 'sheerun/vim-polyglot'
-Plugin 'slim-template/vim-slim'
+" Languages support
+Plugin 'sheerun/vim-polyglot'
+Plugin 'darthmall/vim-vue'
 
 " Haskell
+Plugin 'Shougo/vimproc.vim' " Dependency for ghcmod
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'eagletmt/neco-ghc'
-
-" Syntax checker
-" Plugin 'scrooloose/syntastic'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -58,7 +52,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'yggdroot/indentline'
-Plugin 'myusuf3/numbers.vim'
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'

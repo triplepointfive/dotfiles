@@ -22,7 +22,7 @@ color solarized8_light_high
 
 
   " vim-closetag
-  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.erb"
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.erb,*.vue"
 
   " Snippets {{{
   " Trigger configuration.

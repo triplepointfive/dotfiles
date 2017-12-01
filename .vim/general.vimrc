@@ -24,7 +24,7 @@ au FocusLost * :wa
 set autowrite
 
 " Show hybrid line numbers
-set number relativenumber
+set number
 
 " Supress warnings
 set autoread
@@ -50,3 +50,9 @@ set si
 
 " Wrap lines
 set wrap
+
+" Sets js filetype manually
+autocmd BufNewFile,BufRead *.es6 setlocal filetype=javascript
+
+" Sets html filetype manually
+autocmd BufNewFile,BufRead *.vue setlocal filetype=slim
