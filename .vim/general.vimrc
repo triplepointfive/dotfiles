@@ -54,5 +54,7 @@ set wrap
 " Sets js filetype manually
 autocmd BufNewFile,BufRead *.es6 setlocal filetype=javascript
 
-" Sets html filetype manually
-autocmd BufNewFile,BufRead *.vue setlocal filetype=slim
+" Sets filetype manually
+" autocmd BufNewFile,BufRead *.vue setlocal filetype=slim
+" au BufNewFile,BufRead *.vue setf vue
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.slim

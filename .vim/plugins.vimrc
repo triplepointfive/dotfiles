@@ -12,8 +12,11 @@ Plugin 'SirVer/ultisnips'   " Track the engine.
 Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
 " Languages support
-Plugin 'sheerun/vim-polyglot'
-Plugin 'darthmall/vim-vue'
+" Plugin 'sheerun/vim-polyglot'
+Plugin 'posva/vim-vue'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'slm-lang/vim-slm'
 
 " Haskell
 Plugin 'Shougo/vimproc.vim' " Dependency for ghcmod
