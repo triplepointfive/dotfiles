@@ -35,18 +35,16 @@ setopt HIST_IGNORE_SPACE
 # export NOTIFY_COMMAND_COMPLETE_TIMEOUT="15"
 # source $HOME/.oh-my-zsh/notify.plugin.zsh
 
-# Cat with colors
-alias ccat='pygmentize -g -O style=colorful'
-
 # What I've done for today
 alias idone="git log --since=midnight  --all --author=\"Ilya\" --format=\"%s\" | grep -v \"Revert.*\" | grep -v \"Merge pull request.*\" | sed -e \"s/DUR\-[0-9X]\{3,4\}: //g\" | paste -sd \",\" -"
+alias drspec="docker-compose run --rm test rspec --format progress"
 
 emoji() {
   echo "require 'utf8_emoji';puts Utf8Emoji.emojis.values.sample" | ruby
 }
 
 git_emoji() {
-  git commit -m  "$1 `emoji` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\//#/' | sed -e 's/[^0-9\#]//g'`"
+  git commit -m  "$1 `emoji` `git rev-parse --abbrev-ref HEAD | sed -e 's/feature\///' | grep -o '[A-Z0-9]\+\-\d\+'`"
 }
 
 # Fixes for rvm env's built vim
@@ -69,3 +67,5 @@ if [ -f /Users/Smelkov/.tnsrc ]; then
     source /Users/Smelkov/.tnsrc
 fi
 ###-tns-completion-end-###
+
+export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/
